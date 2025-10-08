@@ -81,7 +81,7 @@ header h1 {
 }
 
 .schedule-table thead {
-    background: linear-gradient(135deg, #f5e6e8 0%, #fdf0f2 100%);
+    background: white;
 }
 
 .schedule-table th {
@@ -90,6 +90,7 @@ header h1 {
     font-weight: 600;
     color: #333;
     border-bottom: 2px solid #e8d4d7;
+    font-size: 0.7rem;
 }
 
 .schedule-table tbody tr {
@@ -127,11 +128,12 @@ header h1 {
     text-align: center;
     vertical-align: middle;
     color: #333;
+    font-size: 0.65rem;
 }
 
 .schedule-table td small {
     color: #e74c3c;
-    font-size: 0.75rem;
+    font-size: 0.6rem;
 }
 
 .lecture-card {
