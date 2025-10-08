@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -68,6 +68,7 @@ header h1 {
 
 table {
     width: 100%;
+    min-width: 900px;
     border-collapse: collapse;
     background: white;
     border-radius: 10px;
@@ -80,10 +81,11 @@ thead {
 }
 
 thead th {
-    padding: 15px;
+    padding: 18px 15px;
     text-align: center;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    white-space: nowrap;
 }
 
 tbody tr {
@@ -96,19 +98,21 @@ tbody tr:hover {
 }
 
 tbody td {
-    padding: 15px;
+    padding: 18px 15px;
     text-align: center;
     vertical-align: middle;
+    font-size: 1rem;
 }
 
 .subject-name {
     font-weight: 600;
     color: #1e3c72;
     margin-bottom: 5px;
+    font-size: 1.05rem;
 }
 
 .subject-note {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     margin-top: 5px;
 }
 
@@ -124,7 +128,7 @@ tbody td {
 
 .location {
     color: #666;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 .current-lecture {
@@ -150,9 +154,9 @@ tbody td {
     display: inline-block;
     background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
     color: white;
-    padding: 8px 20px;
-    border-radius: 20px;
-    font-size: 0.95rem;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
     font-weight: 600;
 }
 
@@ -163,7 +167,7 @@ tbody td {
 }
 
 .lecture-time {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #555;
     margin: 10px 0;
 }
@@ -171,26 +175,28 @@ tbody td {
 .lecture-info {
     color: #666;
     margin: 10px 0;
+    font-size: 1.1rem;
 }
 
 .lecture-location {
     color: #666;
     margin: 10px 0;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .lecture-day {
     display: inline-block;
     background: #dc3545;
     color: white;
-    padding: 8px 20px;
-    border-radius: 20px;
+    padding: 10px 25px;
+    border-radius: 25px;
     margin: 15px 0;
     font-weight: 600;
+    font-size: 1.1rem;
 }
 
 .lecture-status {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin: 15px 0;
 }
 
@@ -202,11 +208,12 @@ tbody td {
 .lecture-label {
     background: #dc3545;
     color: white;
-    padding: 8px 20px;
-    border-radius: 20px;
+    padding: 10px 25px;
+    border-radius: 25px;
     display: inline-block;
     margin: 15px 0;
     font-weight: 600;
+    font-size: 1rem;
 }
 
 .lecture-navigation {
@@ -215,21 +222,21 @@ tbody td {
     align-items: center;
     margin: 30px 0 20px 0;
     gap: 15px;
-    flex-wrap: wrap;
 }
 
 .nav-btn {
     background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
     color: white;
     border: none;
-    padding: 12px 25px;
-    border-radius: 8px;
+    padding: 15px 30px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 600;
     transition: all 0.3s ease;
     flex: 1;
-    min-width: 150px;
+    min-width: 180px;
+    white-space: nowrap;
 }
 
 .nav-btn:hover {
@@ -237,31 +244,44 @@ tbody td {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+.nav-btn:active {
+    transform: translateY(0);
+}
+
 .lecture-timer {
     background: #f8f9fa;
-    padding: 12px 25px;
-    border-radius: 8px;
-    font-size: 1.3rem;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #1e3c72;
     border: 2px solid #e0e0e0;
+    min-width: 150px;
 }
 
 .last-update {
     color: #999;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     margin-top: 20px;
     font-style: italic;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
     header h1 {
         font-size: 1.8rem;
     }
     
     .subtitle {
         font-size: 0.95rem;
+    }
+    
+    .user-section {
+        padding: 20px;
     }
     
     .user-section h2 {
@@ -274,58 +294,35 @@ tbody td {
     
     .schedule-table {
         padding: 15px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
     
     table {
-        font-size: 0.85rem;
+        min-width: 100%;
+        font-size: 0.9rem;
     }
     
     thead th {
-        padding: 10px 5px;
-        font-size: 0.85rem;
+        padding: 12px 8px;
+        font-size: 0.9rem;
     }
     
     tbody td {
-        padding: 10px 5px;
+        padding: 12px 8px;
+        font-size: 0.85rem;
     }
     
-    .lecture-title {
-        font-size: 1.5rem;
+    .subject-name {
+        font-size: 0.95rem;
     }
     
-    .lecture-navigation {
-        flex-direction: column;
+    .subject-note {
+        font-size: 0.8rem;
     }
     
-    .nav-btn {
-        width: 100%;
-    }
-    
-    .lecture-timer {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        padding: 10px;
-    }
-    
-    header h1 {
-        font-size: 1.5rem;
-    }
-    
-    .user-section {
-        padding: 15px;
-    }
-    
-    .schedule-table {
-        padding: 10px;
-    }
-    
-    table {
-        font-size: 0.75rem;
+    .location {
+        font-size: 0.8rem;
     }
     
     .current-lecture {
@@ -334,5 +331,104 @@ tbody td {
     
     .lecture-card {
         padding: 20px;
+    }
+    
+    .lecture-badge {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+    }
+    
+    .lecture-title {
+        font-size: 1.5rem;
+    }
+    
+    .lecture-time {
+        font-size: 1.1rem;
+    }
+    
+    .lecture-info,
+    .lecture-location {
+        font-size: 0.95rem;
+    }
+    
+    .lecture-day {
+        font-size: 0.95rem;
+        padding: 8px 20px;
+    }
+    
+    .lecture-status {
+        font-size: 1rem;
+    }
+    
+    .lecture-label {
+        font-size: 0.9rem;
+        padding: 8px 20px;
+    }
+    
+    .lecture-navigation {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .nav-btn {
+        width: 100%;
+        min-width: auto;
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+    
+    .lecture-timer {
+        width: 100%;
+        text-align: center;
+        font-size: 1.3rem;
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .user-section {
+        padding: 15px;
+    }
+    
+    .user-section h2 {
+        font-size: 1.3rem;
+    }
+    
+    .user-section h3 {
+        font-size: 1rem;
+    }
+    
+    .schedule-table {
+        padding: 10px;
+    }
+    
+    table {
+        font-size: 0.8rem;
+    }
+    
+    thead th {
+        padding: 10px 6px;
+        font-size: 0.8rem;
+    }
+    
+    tbody td {
+        padding: 10px 6px;
+        font-size: 0.75rem;
+    }
+    
+    .lecture-title {
+        font-size: 1.3rem;
+    }
+    
+    .lecture-timer {
+        font-size: 1.1rem;
     }
 }
