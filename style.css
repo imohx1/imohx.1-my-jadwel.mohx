@@ -114,6 +114,14 @@ header h1 {
     background: #ffd9e0;
 }
 
+.schedule-table tbody tr.cancelled {
+    background: #ffe8ec;
+}
+
+.schedule-table tbody tr.cancelled:hover {
+    background: #ffd9e0;
+}
+
 .schedule-table td {
     padding: 8px 6px;
     text-align: center;
