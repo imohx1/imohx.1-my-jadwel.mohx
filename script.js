@@ -145,20 +145,9 @@ function updateHijriDate() {
     document.querySelector('.last-update').textContent = `آخر تحديث: ${hijriDate} - ${time}`;
 }
 
-// تمييز اليوم الحالي
+// تمييز اليوم الحالي (معطل)
 function highlightCurrentDay() {
-    const now = new Date();
-    const days = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
-    const currentDay = days[now.getDay()];
-    
-    const rows = document.querySelectorAll('.schedule-table tbody tr');
-    rows.forEach(row => {
-        const dayCell = row.querySelector('td:first-child');
-        if (dayCell && dayCell.textContent.trim() === currentDay) {
-            row.style.background = '#fff3cd';
-            row.style.borderRight = '4px solid #ffc107';
-        }
-    });
+    // لا نريد تمييز اليوم الحالي
 }
 
 // التهيئة
