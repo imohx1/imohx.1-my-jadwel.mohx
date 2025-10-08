@@ -4,98 +4,194 @@ const lectures = [
         day: "الأحد",
         subject: "اللغة الإنجليزية",
         time: "07:30 ص - 09:10 ص",
+        startTime: "07:30",
+        endTime: "09:10",
         teacher: "خالد الجفن",
-        location: "مبنى 01 / 1040120114"
+        location: "مبنى 01 / 1040120114",
+        dayIndex: 0
     },
     {
         day: "الأحد",
         subject: "هندسة البرمجيات",
         time: "11:01 ص - 01:30 م",
+        startTime: "11:01",
+        endTime: "13:30",
         teacher: "بدر الشويع",
-        location: "مبنى 02 / 1040220114"
+        location: "مبنى 02 / 1040220114",
+        dayIndex: 0
     },
     {
         day: "الاثنين",
         subject: "مبادئ برمجة صفحات الإنترنت",
         time: "07:30 ص - 10:50 ص",
+        startTime: "07:30",
+        endTime: "10:50",
         teacher: "محمد الحربي",
-        location: "مبنى 02 / 1040220101"
+        location: "مبنى 02 / 1040220101",
+        dayIndex: 1
     },
     {
         day: "الاثنين",
         subject: "مبادئ قواعد البيانات",
         time: "11:01 ص - 12:40 م",
+        startTime: "11:01",
+        endTime: "12:40",
         teacher: "خالد البليهي",
-        location: "مبنى 02 / 1040220110"
+        location: "مبنى 02 / 1040220110",
+        dayIndex: 1
     },
     {
         day: "الثلاثاء",
         subject: "أساسيات برمجة الحاسب",
         time: "07:30 ص - 09:10 ص",
+        startTime: "07:30",
+        endTime: "09:10",
         teacher: "خالد البليهي",
-        location: "مبنى 02 / 1040220108"
+        location: "مبنى 02 / 1040220108",
+        dayIndex: 2
     },
     {
         day: "الثلاثاء",
         subject: "مبادئ قواعد البيانات",
         time: "09:20 ص - 11:00 ص",
+        startTime: "09:20",
+        endTime: "11:00",
         teacher: "خالد البليهي",
-        location: "مبنى 02 / 1040220109"
+        location: "مبنى 02 / 1040220109",
+        dayIndex: 2
     },
     {
         day: "الثلاثاء",
         subject: "مبادئ برمجة صفحات الإنترنت",
         time: "11:01 ص - 12:40 م",
+        startTime: "11:01",
+        endTime: "12:40",
         teacher: "محمد الحربي",
-        location: "مبنى 02 / 1040220101"
+        location: "مبنى 02 / 1040220101",
+        dayIndex: 2
     },
     {
         day: "الثلاثاء",
         subject: "تطبيقات الحاسب المتقدمة",
         time: "04:30 م - 06:10 م",
+        startTime: "16:30",
+        endTime: "18:10",
         teacher: "نايف الأسطاء",
         location: "مبنى 01 / 1040110112",
-        note: "(دراسة ذاتية)"
+        note: "(دراسة ذاتية)",
+        dayIndex: 2
     },
     {
         day: "الأربعاء",
         subject: "أساسيات برمجة الحاسب",
         time: "07:30 ص - 10:50 ص",
+        startTime: "07:30",
+        endTime: "10:50",
         teacher: "خالد البليهي",
-        location: "مبنى 02 / 1040230110"
+        location: "مبنى 02 / 1040230110",
+        dayIndex: 3
     },
     {
         day: "الأربعاء",
         subject: "أساسيات ريادة الأعمال",
         time: "11:01 ص - 12:41 م",
+        startTime: "11:01",
+        endTime: "12:41",
         teacher: "فارس الحربي",
-        location: "مبنى 01 / 1040110101"
+        location: "مبنى 01 / 1040110101",
+        dayIndex: 3
     },
     {
         day: "الأربعاء",
         subject: "تطبيقات الحاسب المتقدمة",
         time: "04:30 م - 06:10 م",
+        startTime: "16:30",
+        endTime: "18:10",
         teacher: "نايف الأسطاء",
         location: "مبنى 01 / 1040110112",
-        note: "(دراسة ذاتية)"
+        note: "(دراسة ذاتية)",
+        dayIndex: 3
     },
     {
         day: "الخميس",
         subject: "اللغة الإنجليزية (2)",
         time: "07:30 ص - 09:10 ص",
+        startTime: "07:30",
+        endTime: "09:10",
         teacher: "خالد الجفن",
-        location: "مبنى 01 / 1040130114"
+        location: "مبنى 01 / 1040130114",
+        dayIndex: 4
     },
     {
         day: "الخميس",
         subject: "الكتابة الفنية",
         time: "09:20 ص - 11:00 ص",
+        startTime: "09:20",
+        endTime: "11:00",
         teacher: "يوسف الحفير",
-        location: "مبنى 01 / 1040130114"
+        location: "مبنى 01 / 1040130114",
+        dayIndex: 4
     }
 ];
 
 let currentLectureIndex = 11; // اللغة الإنجليزية (2)
+
+// تحويل الوقت إلى دقائق
+function timeToMinutes(timeStr) {
+    const [hours, minutes] = timeStr.split(':').map(Number);
+    return hours * 60 + minutes;
+}
+
+// إيجاد المحاضرة الحالية أو القادمة
+function findCurrentLecture() {
+    const now = new Date();
+    const currentDay = now.getDay(); // 0 = الأحد
+    const currentTimeMinutes = now.getHours() * 60 + now.getMinutes();
+    
+    // البحث عن المحاضرة الحالية في نفس اليوم
+    for (let i = 0; i < lectures.length; i++) {
+        const lecture = lectures[i];
+        if (lecture.dayIndex === currentDay) {
+            const startMinutes = timeToMinutes(lecture.startTime);
+            const endMinutes = timeToMinutes(lecture.endTime);
+            
+            // إذا كان الوقت الحالي بين بداية المحاضرة و (بداية المحاضرة + 25 دقيقة)
+            if (currentTimeMinutes >= startMinutes && currentTimeMinutes < startMinutes + 25) {
+                return i;
+            }
+            
+            // إذا كان الوقت الحالي بعد 25 دقيقة من البداية وقبل نهاية المحاضرة
+            // نعتبرها انتهت ونبحث عن القادمة
+            if (currentTimeMinutes >= startMinutes + 25 && currentTimeMinutes < endMinutes) {
+                // البحث عن المحاضرة القادمة
+                for (let j = i + 1; j < lectures.length; j++) {
+                    if (lectures[j].dayIndex >= currentDay) {
+                        return j;
+                    }
+                }
+                // إذا لم نجد، نرجع للمحاضرة الأولى
+                return 0;
+            }
+        }
+    }
+    
+    // البحث عن أول محاضرة قادمة
+    for (let i = 0; i < lectures.length; i++) {
+        const lecture = lectures[i];
+        if (lecture.dayIndex > currentDay) {
+            return i;
+        }
+        if (lecture.dayIndex === currentDay) {
+            const startMinutes = timeToMinutes(lecture.startTime);
+            if (currentTimeMinutes < startMinutes) {
+                return i;
+            }
+        }
+    }
+    
+    // إذا انتهى الأسبوع، نرجع للمحاضرة الأولى
+    return 0;
+}
 
 // عرض المحاضرة
 function displayLecture(index) {
@@ -145,6 +241,12 @@ function updateHijriDate() {
     document.querySelector('.last-update').textContent = `آخر تحديث: ${hijriDate} - ${time}`;
 }
 
+// تحديث المحاضرة الحالية
+function updateCurrentLecture() {
+    currentLectureIndex = findCurrentLecture();
+    displayLecture(currentLectureIndex);
+}
+
 // تمييز اليوم الحالي (معطل)
 function highlightCurrentDay() {
     // لا نريد تمييز اليوم الحالي
@@ -152,12 +254,15 @@ function highlightCurrentDay() {
 
 // التهيئة
 document.addEventListener('DOMContentLoaded', function() {
-    displayLecture(currentLectureIndex);
+    updateCurrentLecture();
     updateTime();
     updateHijriDate();
     highlightCurrentDay();
     
-    // تحديث الوقت كل دقيقة
-    setInterval(updateTime, 60000);
-    setInterval(updateHijriDate, 60000);
+    // تحديث الوقت والمحاضرة كل دقيقة
+    setInterval(function() {
+        updateTime();
+        updateHijriDate();
+        updateCurrentLecture();
+    }, 60000);
 });
