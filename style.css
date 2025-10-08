@@ -137,25 +137,6 @@ header h1 {
     font-size: 0.5rem;
 }
 
-/* ألوان الصفوف حسب اليوم */
-.schedule-table tbody tr.sun,
-.schedule-table tbody tr.tue,
-.schedule-table tbody tr.thu {
-    background-color: #f0f0f0;
-}
-
-.schedule-table tbody tr.mon,
-.schedule-table tbody tr.wed {
-    background-color: #ffffff;
-}
-
-/* المادة الذاتية والمحاضرة الملغية */
-.schedule-table tbody tr.self-study td,
-.schedule-table tbody tr.cancelled td {
-    color: #e74c3c;
-    text-decoration: line-through;
-}
-
 .lecture-card {
     background: white;
     border-radius: 20px;
@@ -233,7 +214,6 @@ header h1 {
     padding: 10px 15px;
     transition: all 0.2s ease;
     font-weight: 300;
-    position: relative;
 }
 
 .nav-arrow:hover {
@@ -243,25 +223,6 @@ header h1 {
 
 .nav-arrow:active {
     transform: scale(1);
-}
-
-/* الخانات الصغيرة تحت الأسهم في بطاقة المحاضرة */
-.nav-arrow .small-label {
-    position: absolute;
-    font-size: 0.55rem;
-    color: #555;
-    top: 100%;
-    white-space: nowrap;
-}
-
-.nav-arrow.prev .prev-label {
-    left: 0;
-    transform: translateY(4px);
-}
-
-.nav-arrow.next .next-label {
-    right: 0;
-    transform: translateY(4px);
 }
 
 .timer-display {
