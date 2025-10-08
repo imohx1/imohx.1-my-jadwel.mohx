@@ -252,6 +252,52 @@ function highlightCurrentDay() {
     // لا نريد تمييز اليوم الحالي
 }
 
+// اختيار اليوم وتصفية الجدول
+function selectDay() {
+    const dayNumber = prompt("أدخل رقم اليوم (1-5):\n1 = الأحد\n2 = الاثنين\n3 = الثلاثاء\n4 = الأربعاء\n5 = الخميس");
+    
+    if (dayNumber === null) return; // إلغاء
+    
+    const day = parseInt(dayNumber);
+    
+    if (isNaN(day) || day < 1 || day > 5) {
+        alert("الرجاء إدخال رقم صحيح من 1 إلى 5");
+        return;
+    }
+    
+    const dayNames = ["الأحد", "الاثنين", "الثلاثاء", "الأربعاء", "الخميس"];
+    const selectedDay = dayNames[day - 1];
+    
+    filterTableByDay(selectedDay);
+}
+
+// تصفية الجدول حسب اليوم
+function filterTableByDay(dayName) {
+    const rows = document.querySelectorAll('.schedule-table tbody tr');
+    
+    if (dayName === null) {
+        // إظهار جميع الصفوف
+        rows.forEach(row => {
+            row.style.display = '';
+        });
+        return;
+    }
+    
+    rows.forEach(row => {
+        const dayCell = row.cells[0].textContent;
+        if (dayCell === dayName) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+}
+
+// إعادة تعيين الجدول لإظهار جميع الأيام
+function resetTable() {
+    filterTableByDay(null);
+}
+
 // التهيئة
 document.addEventListener('DOMContentLoaded', function() {
     updateCurrentLecture();
