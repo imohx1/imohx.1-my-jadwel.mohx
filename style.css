@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
+    min-height: 100vh;
+    padding: 20px;
+    direction: rtl;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+    padding: 30px 0;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.user-section {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.user-section h2 {
+    font-size: 2rem;
+    color: #1e3c72;
+    margin-bottom: 10px;
+}
+
+.user-section h3 {
+    font-size: 1.3rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.schedule-table {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+thead {
+    background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+    color: white;
+}
+
+thead th {
+    padding: 15px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+tbody tr {
+    border-bottom: 1px solid #e0e0e0;
+    transition: background 0.3s ease;
+}
+
+tbody tr:hover {
+    background: #f5f8ff;
+}
+
+tbody td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.subject-name {
+    font-weight: 600;
+    color: #1e3c72;
+    margin-bottom: 5px;
+}
+
+.subject-note {
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+.subject-note.cancelled {
+    color: #dc3545;
+    font-weight: 500;
+}
+
+.subject-note.self-study {
+    color: #ff6b6b;
+    font-style: italic;
+}
+
+.location {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.current-lecture {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.lecture-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+    text-align: center;
+}
+
+.lecture-header {
+    margin-bottom: 20px;
+}
+
+.lecture-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.lecture-title {
+    font-size: 2rem;
+    color: #1e3c72;
+    margin: 20px 0;
+}
+
+.lecture-time {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+.lecture-info {
+    color: #666;
+    margin: 10px 0;
+}
+
+.lecture-location {
+    color: #666;
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+.lecture-day {
+    display: inline-block;
+    background: #dc3545;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+.lecture-status {
+    font-size: 1.1rem;
+    margin: 15px 0;
+}
+
+.lecture-status.cancelled {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+.lecture-label {
+    background: #dc3545;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    display: inline-block;
+    margin: 15px 0;
+    font-weight: 600;
+}
+
+.lecture-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0 20px 0;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.nav-btn {
+    background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 150px;
+}
+
+.nav-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.lecture-timer {
+    background: #f8f9fa;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1e3c72;
+    border: 2px solid #e0e0e0;
+}
+
+.last-update {
+    color: #999;
+    font-size: 0.85rem;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .user-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .user-section h3 {
+        font-size: 1.1rem;
+    }
+    
+    .schedule-table {
+        padding: 15px;
+    }
+    
+    table {
+        font-size: 0.85rem;
+    }
+    
+    thead th {
+        padding: 10px 5px;
+        font-size: 0.85rem;
+    }
+    
+    tbody td {
+        padding: 10px 5px;
+    }
+    
+    .lecture-title {
+        font-size: 1.5rem;
+    }
+    
+    .lecture-navigation {
+        flex-direction: column;
+    }
+    
+    .nav-btn {
+        width: 100%;
+    }
+    
+    .lecture-timer {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .user-section {
+        padding: 15px;
+    }
+    
+    .schedule-table {
+        padding: 10px;
+    }
+    
+    table {
+        font-size: 0.75rem;
+    }
+    
+    .current-lecture {
+        padding: 15px;
+    }
+    
+    .lecture-card {
+        padding: 20px;
+    }
+}
